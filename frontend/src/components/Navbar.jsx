@@ -38,7 +38,7 @@ function Navbar() {
                 </div>
             </div>
             <Link to="/login">
-                <div className='text-black flex md:mr-8 items-center'>
+                <div className='text-black flex md:mr-8 items-center min-h-full'>
                     <button className='bg-red-500 h-fit rounded-lg px-2.5 py-1 font-semibold hover:bg-red-400 duration-500'>
                         LOGIN
                     </button>
