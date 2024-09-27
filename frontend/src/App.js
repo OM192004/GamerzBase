@@ -1,10 +1,14 @@
 
-import './App.css';
 import './assests/styles/style.css';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './components/Login';
 import Register from './components/Register';
+
+import EventList from './components/EventList';
+import EventDetails from './components/EventDetails';
+import EventCard from './components/EventCard';
 
 function App() {
   return (
@@ -12,9 +16,15 @@ function App() {
     <Router>
       <Navbar/>
       <Routes>
+        {/* Authentication routes */}
         <Route path="/login" element={<Login/>} />
         <Route path='/Register' element={<Register/>} />
+        {/* Event routes */}
+        <Route path='/EventList' element={<EventList/>} />
+        <Route path='/EventCard' element={<EventCard/>} />
+        <Route path='/EventDetails' element={<EventDetails/>} />
       </Routes>
+      <Footer />
     </Router>
       
     </div>
