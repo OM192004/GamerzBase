@@ -12,6 +12,8 @@ module.exports = {
         line:'#ff4655',
         backscreen:'#050505',
         card:'#0e0e0e',
+        newgray:'#262626',
+        bggray:'#161616',
       },
       scale: {
         '102': '1.02', // 102% scale

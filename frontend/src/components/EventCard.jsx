@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function EventCard() {
   return (
-    <div className="bg-new text-white rounded-lg overflow-hidden shadow-lg transform transition-all hover:scale-102">
+    <div className="bg-newgray text-white rounded-lg overflow-hidden shadow-lg transform transition-all hover:scale-102">
       <img
         src='/image.webp'
         alt="Valorant Champions Seoul"
