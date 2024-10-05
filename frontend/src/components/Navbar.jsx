@@ -26,9 +26,11 @@ function Navbar() {
                         <span className="absolute left-50 bottom-0 w-full h-0.5 bg-line scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
                     </div>
                     <div className='group relative h-full flex items-center'>
+                        <Link to='/NewsPage'>
                         <button className="min-h-fit px-2.5 py-1 hover:bg-shade rounded-md duration-300">
                             NEWS
                         </button>
+                        </Link>
                         <span className="absolute left-50 bottom-0 w-full h-0.5 bg-line scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
                     </div>
                     <div className='group relative h-full flex items-center'>

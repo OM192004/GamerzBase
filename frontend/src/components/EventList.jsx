@@ -12,7 +12,6 @@ export default function EventList() {
         <EventCard />
         <EventCard />
         <EventCard />
-        <EventCard />
 
       </div>
       <div>
