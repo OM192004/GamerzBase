@@ -14,6 +14,7 @@ module.exports = {
         card:'#0e0e0e',
         newgray:'#262626',
         bggray:'#161616',
+        red1:'#ea2b03'
       },
       scale: {
         '102': '1.02', // 102% scale
