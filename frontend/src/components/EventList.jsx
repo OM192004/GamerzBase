@@ -13,7 +13,6 @@ export default function EventList() {
         <EventCard/>
         <EventCard/>
         <EventCard/>
-        
       </div>
     </div>
   );
