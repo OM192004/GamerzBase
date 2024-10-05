@@ -1,6 +1,8 @@
 import './assests/styles/style.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './components/Login';
 import Register from './components/Register';
@@ -26,6 +28,7 @@ function App() {
       </Routes>
       <div className='bg-white h-10'></div>
       <Footer />
+      <ToastContainer /> 
     </Router>
       
     </div>
