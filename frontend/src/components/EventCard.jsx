@@ -15,6 +15,7 @@ export default function EventCard() {
         {/* Red overlay on hover */}
         <div className="absolute inset-0 bg-red-800 opacity-0 transition-opacity duration-700 ease-in-out hover:opacity-50"></div>
       </div>
+
       <div className="p-6">
         <p className="text-sm text-gray-400 mb-2">24 July 2024</p>
         <h2 className="text-xl font-semibold mb-2">

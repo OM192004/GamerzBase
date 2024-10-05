@@ -12,7 +12,7 @@ function Navbar() {
                 <div className='flex text-white gap-7 font-semibold items-center'>
 
                     <div className='group relative h-full flex items-center'>
-                        <Link to="/EventList">
+                        <Link to="/Event">
                             <button className="min-h-fit px-2.5 py-1 hover:bg-shade rounded-md duration-300">
                                 EVENTS
                             </button>
