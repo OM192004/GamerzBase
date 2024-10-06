@@ -2,6 +2,7 @@ const express=require('express');
 const cors=require('cors');
 const app=express();
 const authRoutes =require('./routes/authRoutes.js');
+const eventRoutes =require('./routes/eventRoutes.js');
 
 require('dotenv').config();
 require("./config/db.js")
@@ -13,6 +14,7 @@ app.use(cors());
 const PORT=5000;
 
 app.use("/auth",authRoutes);
+app.use("/event",eventRoutes);
 
 
 app.listen(PORT,()=>{

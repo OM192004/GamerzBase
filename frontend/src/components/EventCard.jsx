@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function EventCard() {
   return (
-    <div className="bg-new text-white rounded-lg overflow-hidden shadow-lg transform transition-all hover:scale-102">
+    <div className="bg-new text-white rounded-lg overflow-hidden shadow-lg transform transition-all hover:scale-102 ">
       <div className="relative">
         {/* Image */}
         <img
@@ -21,7 +21,7 @@ export default function EventCard() {
         <h2 className="text-xl font-semibold mb-2">
           Everything You Need to Know: Champions Seoul
         </h2>
-        <p className="text-gray-400 mb-4">
+        <p className="text-gray-400 mb-4 ">
           Tournament match-ups, format, schedule, and more!
         </p>
 
