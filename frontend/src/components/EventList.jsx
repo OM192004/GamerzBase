@@ -7,7 +7,7 @@ export default function EventList() {
       <h1 className="text-4xl font-bold mb-8">EVENTS</h1>
       <div className="h-[2px] w-full bg-line mb-5"></div>
       {/* Grid container for the event cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
         <EventCard />
         <EventCard />
         <EventCard />
