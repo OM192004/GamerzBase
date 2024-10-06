@@ -1,5 +1,6 @@
 import React from "react";
 import GameCard from "../components/GameCard";
+import Sponsers from "../components/Sponsers";
 
 export default function EventList() {
   return (
@@ -8,11 +9,13 @@ export default function EventList() {
 
       {/* Grid container for the event cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 ">
-        <GameCard/>
-        <GameCard/>
-        <GameCard/>
-        <GameCard/>
-        <GameCard/>
+        <GameCard />
+        <GameCard />
+        <GameCard />
+        <GameCard />
+        <GameCard />
+
+        <Sponsers/>
       </div>
     </div>
   );

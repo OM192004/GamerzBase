@@ -14,16 +14,19 @@ import NewsPage from './pages/NewsPage';
 import Main from './pages/Main'
 import Games from './pages/Games';
 import AddEvent from './components/Admin/addEvent';
+import Profile from './pages/Profile'
+import Home from './pages/Home';
 
 function App() {
   return (
     <div className="App">
-    <Router>
-       <Navbar/> 
+    <Router> 
       <Main/>
-      <Games/>
       <Routes>
         {/* Authentication routes */}
+        <Route path="/home" element={<Home/>} />
+        <Route path="/games" element={<Games/>} />
+        <Route path="/profile" element={<Profile/>} />
         <Route path="/login" element={<Login/>} />
         <Route path='/Register' element={<Register/>} />
         {/* Event routes */}
@@ -34,8 +37,6 @@ function App() {
         <Route path='/NewsPage' element={<NewsPage/>}/>
         <Route path='/addEvent' element={<AddEvent/>}/>
       </Routes>
-      <div className='bg-white h-10'></div>
-      <Footer />
       <ToastContainer /> 
     </Router>
       

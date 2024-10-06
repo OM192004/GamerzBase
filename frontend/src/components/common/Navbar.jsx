@@ -67,16 +67,17 @@ function Navbar() {
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >
-                <button className='bg-red-500 h-fit rounded-lg px-2.5 py-1 font-semibold hover:bg-red-400 duration-500 flex items-center gap-2'>
-                    <span class="material-symbols-outlined">
-                        person
-                    </span>
+                <Link to="/profile">
+                <button className='bg-red-500 h-fit px-2.5 py-1 font-semibold hover:bg-red-400 duration-500 flex items-center gap-2 rounded-full'>
+                <img src='/profilepic.png ' className='h-8 rounded-full'></img>
                     {Username || 'Login'}
                 </button>
+                </Link>
 
                 {/* Show Logout option on hover */}
                 {Username && isHovered && (
                     <div className='absolute top-10 right-0 bg-white text-black p-2 rounded-lg shadow-lg'>
+                        
                         <button
                             className='hover:text-red-500 duration-300'
                             onClick={handleLogout}

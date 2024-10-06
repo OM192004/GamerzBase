@@ -46,7 +46,7 @@ const Login = () => {
         localStorage.setItem('token',jwt);
         localStorage.setItem('Loggedinuser',Username);
         setTimeout(() =>{
-          Navigate('/')
+          Navigate('/Home')
         },1000)
       }
       else if(error){
@@ -62,7 +62,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex h-screen justify-center bg-black size-full">
+    <div className="flex justify-center py-16 size-full">
       <div className="flex w-[400px] max-w-4xl rounded-lg shadow-md h-3/4 shadow-line mt-10">
         <div className="w-full p-8 bg-white rounded-md">
           <h2 className="text-2xl font-bold text-center mb-6 mt-7">Sign in</h2>
