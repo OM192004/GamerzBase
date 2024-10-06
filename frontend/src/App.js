@@ -12,28 +12,29 @@ import EventDetails from './components/EventDetails';
 import EventCard from './components/EventCard';
 import NewsPage from './pages/NewsPage';
 import Main from './pages/Main'
+import Home from './pages/Home';
 import Games from './pages/Games';
+import Profile from './pages/Profile';
 
 function App() {
   return (
     <div className="App">
     <Router>
-      {/* <Navbar/> */}
       <Main/>
-      <Games/>
       <Routes>
         {/* Authentication routes */}
         <Route path="/login" element={<Login/>} />
         <Route path='/Register' element={<Register/>} />
+        <Route path='/Home' element={<Home/>}/>
         {/* Event routes */}
         <Route path='/Event' element={<Events />} />
         <Route path='/EventList' element={<EventList/>} />
         <Route path='/EventCard' element={<EventCard/>} />
         <Route path='/EventDetails' element={<EventDetails/>} />
         <Route path='/NewsPage' element={<NewsPage/>}/>
+        <Route path='/Games' element={<Games/>}/>
+        <Route path='/Profile' element={<Profile/>}/>
       </Routes>
-      <div className='bg-white h-10'></div>
-      <Footer />
       <ToastContainer /> 
     </Router>
       
