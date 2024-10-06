@@ -1,7 +1,56 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React,{ useState} from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { handleError, handleSuccess } from '../utils/handleMsg';
 
 const Register = () => {
+  const [signinInfo, setsigninInfo] = useState({
+    Username: '',
+    email:'',
+    password: ''
+  });
+   const Navigate=useNavigate();
+
+  const handleChange = async (e) => {
+    const { name, value } = e.target;
+    // Create a copy of the current loginInfo and update the relevant field
+    setsigninInfo((prevState) => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+  const handleSubmit= async (e)=>{
+    e.preventDefault();
+    
+  
+    try{
+      const url="http://localhost:5000/auth/Signup";
+      const response=await fetch(url,{
+        method:"POST",
+        headers:{
+          'Content-Type':'application/json'
+        },
+        body:JSON.stringify(signinInfo)
+      })
+      const result =await response.json();
+      const {success,message,error} =result;
+      if(success){
+         handleSuccess(message);
+         setTimeout(() => {
+            Navigate('/Login')
+         },1000);
+      }
+      else if(error){
+        const details=error?.details[0].message;
+        handleError(details);
+      }
+      else if(!success){
+        handleError(message);
+      }
+    }
+    catch (err){
+      handleError(err);
+    }
+  }
   return (
     <div className="flex min-h-screen justify-between bg-black size-full">
         <div className='flex items-end ml-7  mb-4 text-6xl font-[900] text-white'>
@@ -11,26 +60,35 @@ const Register = () => {
       
         <div className="w-full p-8 bg-white  max-h-fit rounded-md">
           <h2 className="text-2xl font-bold text-center my-7 font-FF Mark W05">Create Account</h2>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="mb-4">
             <input
-                type="username"
+                type="text"
+                name="Username"
                 placeholder="USERNAME"
                 className="w-full px-4 py-2 rounded-md bg-gray-100 placeholder:text-[10px] placeholder:text-bold hover:bg-gray-200"
+                onChange={handleChange} // Use onChange instead of onClick
+                value={signinInfo.Username}
+              />
+            </div>
+            <div className="mb-4">
+            <input
+                type="text"
+                name='email'
+                placeholder="EMAIL"
+                className="w-full px-4 py-2 rounded-md bg-gray-100 placeholder:text-[10px] placeholder:text-bold hover:bg-gray-200"
+                onChange={handleChange}
+                value={signinInfo.email}
               />
             </div>
             <div className="mb-4">
             <input
                 type="password"
+                name="password"
                 placeholder="PASSWORD"
                 className="w-full px-4 py-2 rounded-md bg-gray-100 placeholder:text-[10px] placeholder:text-bold hover:bg-gray-200"
-              />
-            </div>
-            <div className="mb-4">
-            <input
-                type="password"
-                placeholder="PASSWORD"
-                className="w-full px-4 py-2 rounded-md bg-gray-100 placeholder:text-[10px] placeholder:text-bold hover:bg-gray-200"
+                onChange={handleChange} // Use onChange instead of onClick
+                value={signinInfo.password}
               />
             </div>
             <div className="flex items-center mb-6">
