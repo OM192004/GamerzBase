@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const {createEvent} = require('../controllers/eventController');
-const { uploadSingle } = require('../middleware/uploadMiddleware.js');
+const upload =require('../config/Multer')
 
-router.post('/addEvent', uploadSingle,createEvent);
+router.post('/addEvent',upload.single('image'),createEvent);
 
 // // Get all events
 // router.get('/events', eventController.getEvents);
