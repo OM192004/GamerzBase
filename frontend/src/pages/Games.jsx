@@ -4,8 +4,9 @@ import Sponsers from "../components/Sponsers";
 
 export default function EventList() {
   return (
-    <div className="bg-backscreen text-white p-10">
-      <h1 className="text-4xl font-bold mb-8">GAMES</h1>
+    <div className=" bg-bggray px-10 py-5 text-white w-fit">
+      <h1 className="text-4xl font-bold mb-8">EXPLORE GAMES</h1>
+      <div className="h-[2px] w-full bg-line mb-5"></div>
 
       {/* Grid container for the event cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 ">
@@ -15,7 +16,7 @@ export default function EventList() {
         <GameCard />
         <GameCard />
 
-        <Sponsers/>
+        {/* <Sponsers/> */}
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ const eventSchema=new Schema({
         type:String,
         required:true
     },
-    infornation:{
+    information:{
         type:String,
     },
     endDate: {

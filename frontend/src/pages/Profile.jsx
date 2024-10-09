@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import Navbar from '../components/Navbar';
+import Navbar from "../components/common/Navbar";
+import Footer from "../components/common/Footer";
 
 export default function Profile() {
   const player = {
@@ -74,173 +75,176 @@ export default function Profile() {
   );
 
   return (
-
-    <div className="bg-backscreen w-auto">
-      <div className="w-[1000px] mx-auto px-6 py-3 space-y-3 bg-backscreen">
-        {/* Grid layout for profile and achievements */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Left: Player Profile */}
-          <div className="flex items-center gap-10 justify-center">
-            <img
-              src="/Profilepic.png"
-              alt={player.name}
-              width={200}
-              height={200}
-              className="rounded-full mb-4 ml-4"
-            />
-            <div className="flex-col">
-              <h1 className="text-3xl text-line font-bold text-center mb-6">
-                {player.name}
-              </h1>
-              <div>
-                <p className="text-xl text-line mb-4">
-                  Professional Esports Player
-                </p>
-                <p className="text-lg text-line  ">Team: {player.team}</p>
+    <div>
+      <Navbar/>
+      <div className="bg-backscreen w-auto">
+        <div className="w-[1000px] mx-auto px-6 py-3 space-y-3 bg-backscreen">
+          {/* Grid layout for profile and achievements */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Left: Player Profile */}
+            <div className="flex items-center gap-10 justify-center">
+              <img
+                src="/Profilepic.png"
+                alt={player.name}
+                width={200}
+                height={200}
+                className="rounded-full mb-4 ml-4"
+              />
+              <div className="flex-col">
+                <h1 className="text-3xl text-line font-bold text-center mb-6">
+                  {player.name}
+                </h1>
+                <div>
+                  <p className="text-xl text-line mb-4">
+                    Professional Esports Player
+                  </p>
+                  <p className="text-lg text-line  ">Team: {player.team}</p>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Right: Achievements */}
-          <div className="bg-newgray shadow rounded-lg px-6 py-3">
-            <h2 className="text-xl font-semibold mb-4 flex items-center gap-2 text-line">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
-                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
-                <path d="M4 22h16"></path>
-                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
-                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
-                <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
-              </svg>
-              Major Achievements
-            </h2>
-            <div className="flex flex-wrap gap-2">
-              {player.achievements.map((achievement, index) => (
-                <span
-                  key={index}
-                  className="bg-gray-200 text-gray-800 text-sm font-medium px-2.5 py-0.5 rounded"
+            {/* Right: Achievements */}
+            <div className="bg-newgray shadow rounded-lg px-6 py-3">
+              <h2 className="text-xl font-semibold mb-4 flex items-center gap-2 text-line">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
-                  {achievement}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom: Recent Events and Career Stats */}
-        <div className="space-y-3">
-          {/* Recent Events */}
-          <div className="bg-newgray shadow rounded-lg px-6 py-3 text-line">
-            <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M8.21 13.89 7 23l-5-1 9.2-9.2-3-10.8 3 10.8zM15 9l-1.5-5.5L9 2l3.5 7H15zm1 0 3.5-7L16 0l-1.5 5.5L16 9z"></path>
-              </svg>
-              Recent Events
-            </h2>
-            <div className="overflow-x-auto rounded-lg">
-              <table className="w-full text-sm text-left text-white">
-                <thead className="text-xs   uppercase text-backscreen bg-gray-100">
-                  <tr>
-                    <th scope="col" className="px-6 py-3">
-                      Event
-                    </th>
-                    <th scope="col" className="px-6 py-3">
-                      Game
-                    </th>
-                    <th scope="col" className="px-6 py-3">
-                      Placement
-                    </th>
-                    <th scope="col" className="px-6 py-3">
-                      Prize
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {player.recentEvents.map((event, index) => (
-                    <tr key={index} className="bg-shade border-b">
-                      <td className="px-6 py-3">{event.name}</td>
-                      <td className="px-6 py-3">{event.game}</td>
-                      <td className="px-6 py-3">{event.placement}</td>
-                      <td className="px-6 py-3">{event.prize}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          {/* Career Stats */}
-          <div className="bg-newgray shadow rounded-lg px-6 py-3 text-line">
-            <div className="mb-4">
-              <div className="flex border-b">
-                {Object.keys(player.careerStats).map((game, index) => (
-                  <button
+                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                  <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                  <path d="M4 22h16"></path>
+                  <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+                  <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+                  <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+                </svg>
+                Major Achievements
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {player.achievements.map((achievement, index) => (
+                  <span
                     key={index}
-                    className={`px-4 py-2 text-sm font-medium text-line hover:text-red-300 focus:outline-none ${
-                      activeGame === game ? "border-b-2 border-red-300" : ""
-                    }`}
-                    onClick={() => setActiveGame(game)} // Update active game on click
+                    className="bg-gray-200 text-gray-800 text-sm font-medium px-2.5 py-0.5 rounded"
                   >
-                    {game}
-                  </button>
+                    {achievement}
+                  </span>
                 ))}
               </div>
             </div>
+          </div>
 
-            {/* Display Stats for the Active Game */}
-            <div>
+          {/* Bottom: Recent Events and Career Stats */}
+          <div className="space-y-3">
+            {/* Recent Events */}
+            <div className="bg-newgray shadow rounded-lg px-6 py-3 text-line">
+              <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M8.21 13.89 7 23l-5-1 9.2-9.2-3-10.8 3 10.8zM15 9l-1.5-5.5L9 2l3.5 7H15zm1 0 3.5-7L16 0l-1.5 5.5L16 9z"></path>
+                </svg>
+                Recent Events
+              </h2>
               <div className="overflow-x-auto rounded-lg">
                 <table className="w-full text-sm text-left text-white">
-                  <thead className="text-xs uppercase text-backscreen bg-gray-100">
+                  <thead className="text-xs   uppercase text-backscreen bg-gray-100">
                     <tr>
                       <th scope="col" className="px-6 py-3">
                         Event
                       </th>
                       <th scope="col" className="px-6 py-3">
-                        Kills
+                        Game
                       </th>
                       <th scope="col" className="px-6 py-3">
-                        Deaths
+                        Placement
                       </th>
                       <th scope="col" className="px-6 py-3">
-                        K/D Ratio
+                        Prize
                       </th>
                     </tr>
                   </thead>
                   <tbody>
-                    {player.careerStats[activeGame].map((event, index) => (
+                    {player.recentEvents.map((event, index) => (
                       <tr key={index} className="bg-shade border-b">
-                        <td className="px-6 py-3">{event.event}</td>
-                        <td className="px-6 py-3">{event.kills}</td>
-                        <td className="px-6 py-3">{event.deaths}</td>
-                        <td className="px-6 py-3">{event.kd.toFixed(2)}</td>
+                        <td className="px-6 py-3">{event.name}</td>
+                        <td className="px-6 py-3">{event.game}</td>
+                        <td className="px-6 py-3">{event.placement}</td>
+                        <td className="px-6 py-3">{event.prize}</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </div>
             </div>
+
+            {/* Career Stats */}
+            <div className="bg-newgray shadow rounded-lg px-6 py-3 text-line">
+              <div className="mb-4">
+                <div className="flex border-b">
+                  {Object.keys(player.careerStats).map((game, index) => (
+                    <button
+                      key={index}
+                      className={`px-4 py-2 text-sm font-medium text-line hover:text-red-300 focus:outline-none ${
+                        activeGame === game ? "border-b-2 border-red-300" : ""
+                      }`}
+                      onClick={() => setActiveGame(game)} // Update active game on click
+                    >
+                      {game}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Display Stats for the Active Game */}
+              <div>
+                <div className="overflow-x-auto rounded-lg">
+                  <table className="w-full text-sm text-left text-white">
+                    <thead className="text-xs uppercase text-backscreen bg-gray-100">
+                      <tr>
+                        <th scope="col" className="px-6 py-3">
+                          Event
+                        </th>
+                        <th scope="col" className="px-6 py-3">
+                          Kills
+                        </th>
+                        <th scope="col" className="px-6 py-3">
+                          Deaths
+                        </th>
+                        <th scope="col" className="px-6 py-3">
+                          K/D Ratio
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {player.careerStats[activeGame].map((event, index) => (
+                        <tr key={index} className="bg-shade border-b">
+                          <td className="px-6 py-3">{event.event}</td>
+                          <td className="px-6 py-3">{event.kills}</td>
+                          <td className="px-6 py-3">{event.deaths}</td>
+                          <td className="px-6 py-3">{event.kd.toFixed(2)}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }
