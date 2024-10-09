@@ -1,6 +1,4 @@
 import './assests/styles/style.css';
-import Navbar from './components/common/Navbar';
-import Footer from './components/common/Footer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -16,6 +14,7 @@ import Games from './pages/Games';
 import AddEvent from './components/Admin/addEvent';
 import Profile from './pages/Profile'
 import Home from './pages/Home';
+import AddNews from './components/Admin/addnews';
 
 function App() {
   return (
@@ -27,6 +26,7 @@ function App() {
         <Route path="/home" element={<Home/>} />
         <Route path="/games" element={<Games/>} />
         <Route path="/profile" element={<Profile/>} />
+        <Route path="/Addnews" element={<AddNews/>} />
         <Route path="/login" element={<Login/>} />
         <Route path='/Register' element={<Register/>} />
         {/* Event routes */}
