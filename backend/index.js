@@ -3,6 +3,7 @@ const cors=require('cors');
 const app=express();
 const authRoutes =require('./routes/authRoutes.js');
 const eventRoutes =require('./routes/eventRoutes.js');
+const newsRoutes=require('./routes/newsRoutes.js')
 
 require('dotenv').config();
 require("./config/db.js")
@@ -16,6 +17,8 @@ const PORT=5000;
 
 app.use("/auth",authRoutes);
 app.use("/event",eventRoutes);
+app.use("/news",newsRoutes);
+
 
 
 
