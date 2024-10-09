@@ -1,6 +1,6 @@
 import React from 'react'
-import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
+import Footer from '../components/common/Footer'
+import Navbar from '../components/common/Navbar'
 import Games from '../pages/Games'
 
 export default function Home() {
