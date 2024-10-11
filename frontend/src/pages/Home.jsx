@@ -1,26 +1,10 @@
-// import React from 'react'
-// import Navbar from '../components/common/Navbar'
-// import Footer from '../components/common/Footer'
-// import Games from '../pages/Games'
 
-// export default function Home() {
-//   return (
-//     <div>
-//       <Navbar/>
-
-//       <div className='bg-backscreen px-10 py-5'>
-//         <Games/>
-//       </div>
-
-//       <Footer/>
-//     </div>
-//   )
-// }
 
 import React from "react";
 import Games from "../pages/Games";
 import Navbar from "../components/common/Navbar";
 import Footer from "../components/common/Footer";
+
 
 export default function Home() {
   // Sample data
