@@ -3,6 +3,8 @@ const cors=require('cors');
 const app=express();
 const authRoutes =require('./routes/authRoutes.js');
 const eventRoutes =require('./routes/eventRoutes.js');
+const requestRoutes=require('./routes/requestRoutes.js')
+const profileRoutes=require('./routes/profileRoutes.js')
 
 require('dotenv').config();
 require("./config/db.js")
@@ -16,7 +18,8 @@ const PORT=5000;
 
 app.use("/auth",authRoutes);
 app.use("/event",eventRoutes);
-
+app.use('/request',requestRoutes);
+app.use('/profile',profileRoutes);
 
 
 app.listen(PORT,()=>{

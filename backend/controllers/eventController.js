@@ -1,15 +1,14 @@
-const Event = require('../models/Event');  // Your Event model
+const Event = require('../models/Event'); 
 const schedule = require('node-schedule');
-const cloudinary = require('../utils/uploadImages'); // Correct Cloudinary import
+const cloudinary = require('../utils/uploadImages');
 const fs = require('fs');  // To handle temporary file removal
 
-// Create Event
 const createEvent = async (req, res) => {
     try {
         const { title, description, endDate, details, information } = req.body;
         let imageUrl = null;
 
-        // Handle image upload to Cloudinary
+        
         if (req.file) {
             try {
                 const result = await cloudinary.uploader.upload(req.file.path);
@@ -27,10 +26,10 @@ const createEvent = async (req, res) => {
             }
         }
 
-        // Parse endDate to Date object
+        
         const parsedEndDate = new Date(endDate);
 
-        // Create a new event
+        
         const event = new Event({
             title,
             description,

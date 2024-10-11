@@ -40,11 +40,12 @@ const Login = () => {
         body:JSON.stringify(loginInfo)
       });
       const result =await response.json();
-      const {success ,message,jwt ,Username,error}=result;
+      const {success ,message,jwt ,Username,error,userId}=result;
       if(success){
         handleSuccess(message);
         localStorage.setItem('token',jwt);
         localStorage.setItem('Loggedinuser',Username);
+        localStorage.setItem('userId', userId);
         setTimeout(() =>{
           Navigate('/Home')
         },1000)

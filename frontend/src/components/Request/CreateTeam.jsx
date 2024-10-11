@@ -1,24 +1,50 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import axios from 'axios';
+import { handleError, handleSuccess } from '../../utils/handleMsg';
 
 const CreateTeam = () => {
   const [teamName, setTeamName] = useState('');
   const [gameName, setGameName] = useState('');
-  const [maxPlayers, setMaxPlayers] = useState(5); // Default number of players
-
+  const [maxPlayers, setMaxPlayers] = useState(5); 
+  const [userId, setUserId] = useState('');
+    
+  useEffect(() => {
+    // Get the username from localStorage
+    const UserId = localStorage.getItem('userId');
+    if (UserId) {
+        setUserId(UserId); // Set it in state if found
+    }
+}, []);
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     try {
-      const response = await axios.post('/api/team/create', {
+      const response = await axios.post('http://localhost:5000/request/createteam', {
         teamName,
         gameName,
         maxPlayers,
+        createdBy: userId,
       });
-      alert('Team created successfully!');
+  
+      const { success, message } = response.data; 
+      if (success) {
+        handleSuccess(message);
+      } else if(success==false){
+        handleError(message);
+      }
+      else{
+        handleError(message)
+      }
     } catch (err) {
-      console.error(err);
+      console.error(err.response ? err.response.data : err.message);
+      const errorMessage = err.response && err.response.data && err.response.data.message
+        ? err.response.data.message
+        : 'Failed to create team. Please try again.';
+        handleError(errorMessage); 
     }
   };
+  
 
   return (
     <form className="max-w-lg mx-auto bg-white p-6 shadow-md rounded-lg" onSubmit={handleSubmit}>

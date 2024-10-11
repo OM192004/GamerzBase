@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 
 export default function EventCard() {
   return (
-    <div className="bg-new text-white rounded-lg overflow-hidden shadow-lg transform transition-all hover:scale-102 ">
+    <div className="bg-new text-white rounded-lg overflow-hidden shadow-lg transform transition-all hover:scale-102 " style={{ width: "320px", height: "450px" }}>
       <div className="relative">
         {/* Image */}
         <img
           src="/event.webp"
           alt="Valorant player silhouette"
           className="w-full h-48 object-cover object-center transition-transform duration-300 ease-in-out"
-          style={{ width: "500px", height: "250px" }}
+          
         />
         {/* Red overlay on hover */}
         <div className="absolute inset-0 bg-red-800 opacity-0 transition-opacity duration-700 ease-in-out hover:opacity-50"></div>

@@ -52,6 +52,7 @@
                 success:true,
                 jwtToken,
                 Username,
+                userId:user._id,
                 email:user.email
             })
 

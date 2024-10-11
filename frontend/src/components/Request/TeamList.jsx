@@ -4,12 +4,21 @@ import TeamCard from './TeamCard';
 
 const TeamsList = () => {
   const [teams, setTeams] = useState([]);
-
+  
   useEffect(() => {
     const fetchTeams = async () => {
       try {
-        const response = await axios.get('/api/team'); // Assuming the API returns all teams
-        setTeams(response.data);
+        const userId = localStorage.getItem('userId');
+        const response = await axios.get('http://localhost:5000/request/getTeams', {
+          params: { userId },
+        });
+        
+        const {success,message}=response.data
+        if (success) {
+          setTeams(response.data.teams);
+        } else {
+          console.error(message); // Log any error message from the response
+        }
       } catch (err) {
         console.error(err);
       }

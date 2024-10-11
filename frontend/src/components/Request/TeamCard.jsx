@@ -17,10 +17,10 @@ const TeamCard = ({ team }) => {
 
   return (
     <div className="max-w-lg mx-auto bg-white p-6 shadow-md rounded-lg my-4">
-      <h3 className="text-xl font-bold mb-2">team.teamName</h3>
-      <p className="text-gray-700 mb-2"><strong>Game:</strong> team.gameName</p>
+      <h3 className="text-xl font-bold mb-2">{team.teamName}</h3>
+      <p className="text-gray-700 mb-2"><strong>Game:</strong> {team.gameName}</p>
       <p className="text-gray-700 mb-4">
-        <strong>Players:</strong> team.members.length/team.maxPlayers
+        <strong>Players:</strong> {team.members.length/team.maxPlayers}
       </p>
       <button
         onClick={handleJoinRequest}
