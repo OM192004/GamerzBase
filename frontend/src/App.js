@@ -20,6 +20,7 @@ import Home from './pages/Home';
 import CreateTeam from './components/Request/CreateTeam';
 import TeamCard from './components/Request/TeamCard';
 import TeamsList from './components/Request/TeamList';
+import AddNews from './components/Admin/addnews'
 
 
 function App() {
@@ -44,9 +45,10 @@ function App() {
           <Route path="/eventlist" element={<EventList />} />
           <Route path="/eventcard" element={<EventCard />} />
           <Route path="/eventdetails" element={<EventDetails />} />
-          <Route path="/newsdetails" element={<NewsDetails />} />
+          <Route path="/news/:id" element={<NewsDetails/>} />
           <Route path="/newspage" element={<NewsPage />} />
           <Route path="/addevent" element={<AddEvent />} />
+          <Route path="/addNews" element={<AddNews />} />
           <Route path="/teamlist" element={<TeamsList />} />
           <Route path="/teamcard" element={<TeamCard />} />
           <Route path="/createteam" element={<CreateTeam />} />

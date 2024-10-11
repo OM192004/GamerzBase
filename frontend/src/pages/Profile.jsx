@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // import React, { useState } from "react";
 // import Navbar from '../components/common/Navbar';
 
@@ -284,85 +283,6 @@ const Profile = () => {
     
 
   }, [userId]);
-=======
-import React, { useState } from "react";
-
-import Navbar from "../components/common/Navbar";
-import Footer from "../components/common/Footer";
-
-
-export default function Profile() {
-  const player = {
-    name: "Alex Johnson",
-    image: "/placeholder.svg?height=200&width=200",
-    team: "Nexus Guardians",
-    achievements: [
-      "2023 World Championship Winner",
-      "5x Tournament MVP",
-      "3x All-Star Player",
-    ],
-    recentEvents: [
-      {
-        name: "Global Esports Masters 2023",
-        game: "Overwatch",
-        placement: "1st",
-        prize: "$100,000",
-      },
-      {
-        name: "Cyber League Season 5",
-        game: "CS:GO",
-        placement: "3rd",
-        prize: "$25,000",
-      },
-      {
-        name: "Valorant Champions Tour 2023",
-        game: "Valorant",
-        placement: "2nd",
-        prize: "$50,000",
-      },
-    ],
-    careerStats: {
-      Overwatch: [
-        {
-          event: "Global Esports Masters 2023",
-          kills: 245,
-          deaths: 76,
-          kd: 3.22,
-        },
-        { event: "Overwatch League 2023", kills: 1250, deaths: 450, kd: 2.78 },
-        { event: "World Cyber Games 2022", kills: 189, deaths: 62, kd: 3.05 },
-      ],
-      "CS:GO": [
-        { event: "Cyber League Season 5", kills: 187, deaths: 102, kd: 1.83 },
-        {
-          event: "ESL Pro League Season 17",
-          kills: 412,
-          deaths: 298,
-          kd: 1.38,
-        },
-        {
-          event: "BLAST Premier: World Final 2022",
-          kills: 156,
-          deaths: 89,
-          kd: 1.75,
-        },
-      ],
-      Valorant: [
-        {
-          event: "Valorant Champions Tour 2023",
-          kills: 231,
-          deaths: 112,
-          kd: 2.06,
-        },
-        { event: "VCT Masters Tokyo", kills: 178, deaths: 95, kd: 1.87 },
-        { event: "Red Bull Home Ground", kills: 145, deaths: 78, kd: 1.86 },
-      ],
-    },
-  };
-  const [activeGame, setActiveGame] = useState(
-    Object.keys(player.careerStats)[0]
-  );
->>>>>>> 568ecf7561fd870ef672c13b156a78db7978a634
 
   return (
     <div className="profile-container">

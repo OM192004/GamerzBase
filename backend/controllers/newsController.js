@@ -56,7 +56,27 @@ const getNews = async (req, res) => {
     }
 };
 
+const getNewsDetails = async (req, res) => {
+    const id = req.params.id; 
+    console.log('Fetching news with ID:', id);
+
+    // Validate ObjectId format
+    
+
+    try {
+        const news = await News.findOne({ _id: id });
+        if (!news) {
+            return res.status(404).json({ success: false, message: 'News not found' });
+        }
+        res.status(200).json({ success: true, news });
+    } catch (err) {
+        console.error('Error fetching news:', err); 
+        res.status(500).json({ success: false, message: 'Failed to fetch news' });
+    }
+};
+
 module.exports = {
     createNews,
-    getNews
+    getNews,
+    getNewsDetails
 };
