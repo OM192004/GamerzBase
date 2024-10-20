@@ -2,6 +2,8 @@ const Event = require('../models/Event');
 const schedule = require('node-schedule');
 const cloudinary = require('../utils/uploadImages');
 const fs = require('fs');  // To handle temporary file removal
+const mongoose = require('mongoose');
+
 
 const createEvent = async (req, res) => {
     try {
@@ -58,7 +60,39 @@ const createEvent = async (req, res) => {
         res.status(500).json({ success: false, message: 'Failed to create event' });
     }
 };
+const getEvents = async (req, res) => {
+    try {
+        const events = await Event.find();  // Fetch all events from the database
+        res.status(200).json({ success: true, events });
+    } catch (err) {
+        console.error('Error fetching events:', err);
+        res.status(500).json({ success: false, message: 'Failed to fetch events' });
+    }
+};
+
+const getEventDetails = async (req, res) => {
+    const id = req.params.id; 
+    console.log('Fetching events with ID:', id);
+
+    // Validate ObjectId format
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).json({ success: false, message: 'Invalid events ID format' });
+    }
+
+    try {
+        const events = await Event.findOne({ _id: id });
+        if (!events) {
+            return res.status(404).json({ success: false, message: 'events not found' });
+        }
+        res.status(200).json({ success: true, events });
+    } catch (err) {
+        console.error('Error fetching events:', err); 
+        res.status(500).json({ success: false, message: 'Failed to fetch events' });
+    }
+};
+
+
 
 module.exports = {
-    createEvent
+    createEvent,getEventDetails,getEvents
 };

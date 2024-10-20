@@ -7,6 +7,7 @@ const AddNews = () => {
     description: '',
     details: '',
     information: '',
+    date: '', // Add a date property
   });
   const [image, setImage] = useState(null); // To store the uploaded image
   const [success, setSuccess] = useState(false); // To show success message or error
@@ -33,6 +34,7 @@ const AddNews = () => {
     eventFormData.append('description', formData.description);
     eventFormData.append('details', formData.details);
     eventFormData.append('information', formData.information);
+    eventFormData.append('endDate', formData.date); // Append the date to the form data
     if (image) {
       eventFormData.append('image', image); // Append the image to the form data
     }
@@ -46,6 +48,15 @@ const AddNews = () => {
 
       if (response.data.success) {
         setSuccess(true); // Set success state to true
+        // Reset form after successful submission
+        setFormData({
+          title: '',
+          description: '',
+          details: '',
+          information: '',
+          date: '', // Reset date
+        });
+        setImage(null); // Reset image
       }
     } catch (err) {
       setError(err.response?.data?.error || 'Something went wrong');
@@ -119,6 +130,22 @@ const AddNews = () => {
             id="information"
             value={formData.information}
             onChange={handleChange}
+          />
+        </div>
+
+        {/* Date Input */}
+        <div className="mb-4">
+          <label className="block text-gray-700 font-bold mb-2" htmlFor="date">
+            Date
+          </label>
+          <input
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:border-blue-300"
+            type="date"
+            name="date"
+            id="date"
+            value={formData.date}
+            onChange={handleChange}
+            required
           />
         </div>
 

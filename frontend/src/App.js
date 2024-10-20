@@ -21,6 +21,9 @@ import CreateTeam from './components/Request/CreateTeam';
 import TeamCard from './components/Request/TeamCard';
 import TeamsList from './components/Request/TeamList';
 import AddNews from './components/Admin/addnews'
+import TeamRequest from './pages/TeamRequest';
+import Ranking from './components/Ranking/MainRanks';
+import AdminPage from './components/Admin/Admin';
 
 
 function App() {
@@ -44,7 +47,7 @@ function App() {
           <Route path="/news" element={<News />} />
           <Route path="/eventlist" element={<EventList />} />
           <Route path="/eventcard" element={<EventCard />} />
-          <Route path="/eventdetails" element={<EventDetails />} />
+          <Route path="/Event/:id" element={<EventDetails />} />
           <Route path="/news/:id" element={<NewsDetails/>} />
           <Route path="/newspage" element={<NewsPage />} />
           <Route path="/addevent" element={<AddEvent />} />
@@ -52,6 +55,9 @@ function App() {
           <Route path="/teamlist" element={<TeamsList />} />
           <Route path="/teamcard" element={<TeamCard />} />
           <Route path="/createteam" element={<CreateTeam />} />
+          <Route path="/teamrequest" element={<TeamRequest />} />
+          <Route path='/ranking' element={<Ranking/>} />
+          <Route path='/admin' element={<AdminPage/>} />
         </Routes>
         {/* <Footer />  Footer can be displayed on all routes */}
         <ToastContainer /> 

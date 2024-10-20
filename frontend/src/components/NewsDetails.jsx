@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Navbar from './common/Navbar'
+import Footer from './common/Footer'
 
 export default function NewsDetails() {
   const { id } = useParams(); 
@@ -41,7 +43,9 @@ export default function NewsDetails() {
   }
 
   return (
-    <div className="bg-gray-800 text-white min-h-screen p-8">
+    <div> 
+      <Navbar />   
+      <div className="bg-gray-800 text-white min-h-screen p-8">
       <div className="max-w-4xl mx-auto bg-gray-900 rounded-lg overflow-hidden shadow-lg">
         <div className="relative h-72">
           <img
@@ -55,8 +59,8 @@ export default function NewsDetails() {
           <h1 className="text-4xl font-bold">{newsItem.title}</h1>
           <p className="text-lg mt-2">{newsItem.description}</p>
           <div className="text-gray-400 text-sm mt-4">
-            <p>Published: {new Date(newsItem.createdAt).toLocaleDateString()}</p>
-            <p>Location: {newsItem.location}</p>
+          <p>Published: {new Date(newsItem.date).toLocaleDateString()}</p> {/* Displaying date */}
+          
           </div>
           <h2 className="text-2xl font-semibold mt-6">Details</h2>
           <p className="text-gray-300 mt-2">{newsItem.details}</p>
@@ -65,5 +69,8 @@ export default function NewsDetails() {
         </div>
       </div>
     </div>
+    <Footer />
+    </div>
+
   );
 }

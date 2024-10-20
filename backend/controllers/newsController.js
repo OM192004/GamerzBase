@@ -1,7 +1,7 @@
 const News = require('../models/News');  // Your News model
-const schedule = require('node-schedule');
 const cloudinary = require('../utils/uploadImages'); // Correct Cloudinary import
 const fs = require('fs');  // To handle temporary file removal
+const mongoose = require('mongoose');
 
 // Create News
 const createNews = async (req, res) => {
@@ -34,6 +34,7 @@ const createNews = async (req, res) => {
             details,
             information,
             imageUrl,
+            date: endDate ? new Date(endDate) : Date.now(), // Use endDate if provided, otherwise set to now
         });
 
         await news.save();
@@ -61,7 +62,9 @@ const getNewsDetails = async (req, res) => {
     console.log('Fetching news with ID:', id);
 
     // Validate ObjectId format
-    
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).json({ success: false, message: 'Invalid news ID format' });
+    }
 
     try {
         const news = await News.findOne({ _id: id });
